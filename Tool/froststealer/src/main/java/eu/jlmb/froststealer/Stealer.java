@@ -127,9 +127,9 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "ObservedProperties");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "observedProperty|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
+			String line = "observedPropertyϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
 			line += value.get("definition");
 			this.writer.println(line);
 			sendInfo("Working on Observed Properties : " + number++ + " / " + tot);
@@ -142,10 +142,10 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "Sensors");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "sensor|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
-			line += value.get("encodingType") + "|";
+			String line = "sensorϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
+			line += value.get("encodingType") + "Ϣ";
 			line += value.get("metadata");
 			this.writer.println(line);
 			sendInfo("Working on Sensors : " + number++ + " / " + tot);
@@ -158,10 +158,10 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "Locations");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "location|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
-			line += value.get("encodingType") + "|";
+			String line = "locationϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
+			line += value.get("encodingType") + "Ϣ";
 			line += ((JSONObject) value.get("location")).toJSONString();
 			this.writer.println(line);
 			sendInfo("Working on Locations : " + number++ + " / " + tot);
@@ -174,10 +174,10 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "FeaturesOfInterest");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "featureOfInterest|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
-			line += value.get("encodingType") + "|";
+			String line = "featureOfInterestϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
+			line += value.get("encodingType") + "Ϣ";
 			line += ((JSONObject) value.get("feature")).toJSONString();
 			this.writer.println(line);
 			sendInfo("Working on Features Of Interest : " + number++ + " / " + tot);
@@ -190,10 +190,10 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "Things");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "thing|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
-			line += ((JSONObject) value.get("properties")).toJSONString() + "|";
+			String line = "thingϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
+			line += ((JSONObject) value.get("properties")).toJSONString() + "Ϣ";
 			
 			String id = "" + value.get("@iot.id");
 			String locs = getDataForLink(this.url + "Things(" + id + ")/Locations");
@@ -216,11 +216,11 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "DataStreams");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "dataStream|" + value.get("@iot.id") + "|";
-			line += value.get("name") + "|";
-			line += value.get("description") + "|";
-			line += value.get("observationType") + "|";
-			line += ((JSONObject) value.get("unitOfMeasurement")).toJSONString() + "|";
+			String line = "dataStreamϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("name") + "Ϣ";
+			line += value.get("description") + "Ϣ";
+			line += value.get("observationType") + "Ϣ";
+			line += ((JSONObject) value.get("unitOfMeasurement")).toJSONString() + "Ϣ";
 			
 			String id = "" + value.get("@iot.id");
 			String thing = getDataForLink(this.url + "DataStreams(" + id + ")/Thing");
@@ -232,28 +232,28 @@ public class Stealer {
 			JSONObject jT = (JSONObject) oT;
 			JSONObject jO = (JSONObject) oO;
 			JSONObject jS = (JSONObject) oS;
-			line += jT.get("@iot.id") + "|";
-			line += jO.get("@iot.id") + "|";
-			line += jS.get("@iot.id") + "|";
+			line += jT.get("@iot.id") + "Ϣ";
+			line += jO.get("@iot.id") + "Ϣ";
+			line += jS.get("@iot.id") + "Ϣ";
 			
 			String opt = "";
 			Object optional = value.get("observedArea");
 			if (optional != null) {
 				opt = "" + optional;
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			opt = "";
 			optional = value.get("phenomenonTime");
 			if (optional != null) {
 				opt = "" + optional;
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			opt = "";
 			optional = value.get("resultTime");
 			if (optional != null) {
 				opt = "" + optional;
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			
 			this.writer.println(line);
 			sendInfo("Working on DataStreams : " + number++ + " / " + tot);
@@ -266,41 +266,41 @@ public class Stealer {
 		JSONArray arrObj = getValues(skip, "Observations");
 		for (Object obj : arrObj) {
 			JSONObject value = (JSONObject) obj;
-			String line = "observation|" + value.get("@iot.id") + "|";
-			line += value.get("phenomenonTime") + "|";
-			line += value.get("result") + "|";
-			line += value.get("resultTime") + "|";
+			String line = "observationϢ" + value.get("@iot.id") + "Ϣ";
+			line += value.get("phenomenonTime") + "Ϣ";
+			line += value.get("result") + "Ϣ";
+			line += value.get("resultTime") + "Ϣ";
 			
 			String id = "" + value.get("@iot.id");
 			String ds = getDataForLink(this.url + "Observations(" + id + ")/Datastream");
 			Object oD = this.parser.parse(ds);
 			JSONObject jD = (JSONObject) oD;
-			line += jD.get("@iot.id") + "|";
+			line += jD.get("@iot.id") + "Ϣ";
 			
 			String foi = getDataForLink(this.url + "Observations(" + id + ")/FeatureOfInterest");
 			Object ofoi = this.parser.parse(foi);
 			JSONObject jfoi = (JSONObject) ofoi;
-			line += jfoi.get("@iot.id") + "|";
+			line += jfoi.get("@iot.id") + "Ϣ";
 			
 			String opt = "";
 			Object optional = value.get("resultQuality");
 			if (optional != null) {
 				opt = "" + optional;
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			opt = "";
 			optional = value.get("validTime");
 			if (optional != null) {
 				opt = "" + optional;
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			opt = "";
 			optional = value.get("parameters");
 			if (optional != null) {
 				JSONObject op = (JSONObject) optional;
 				opt = "" + op.toJSONString();
 			}
-			line += opt + "|";
+			line += opt + "Ϣ";
 			
 			this.writer.println(line);
 			sendInfo("Working on Observations : " + number++ + " / " + tot);
